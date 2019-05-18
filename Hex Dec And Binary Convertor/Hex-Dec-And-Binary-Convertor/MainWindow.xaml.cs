@@ -24,5 +24,17 @@ namespace Hex_Dec_And_Binary_Convertor
         {
             InitializeComponent();
         }
+
+        string[] Selection = new string[] {"Binair", "Decimaal", "Hexadecimaal"};
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            for (int i = 0; i < Selection.Length; i++)
+            {
+                cmbSelection.Items.Add(Selection[i]);
+            }
+
+            cmbSelection.SelectedIndex = 0;
+        }
     }
 }
