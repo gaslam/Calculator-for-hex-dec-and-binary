@@ -94,5 +94,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Convertor_berekenen.Lib\Convertor_berekenen.Lib.csproj">
+      <Project>{096f9b35-935f-4359-ab94-a91b18913ab4}</Project>
+      <Name>Convertor_berekenen.Lib</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
