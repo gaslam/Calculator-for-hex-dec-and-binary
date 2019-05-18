@@ -9,7 +9,7 @@
     <Grid Background="#FFE1F9F8">
         <Label Content="" HorizontalAlignment="Left" Margin="0,0,-0.2,0" VerticalAlignment="Top" Height="82" Width="585" Background="White"/>
 
-        <TextBox x:Name="txtInput" HorizontalAlignment="Left" Height="23" Margin="224,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="248"/>
+        <TextBox x:Name="txtInput" HorizontalAlignment="Left" Height="23" Margin="224,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="248" TextChanged="TxtInput_TextChanged"/>
         <ComboBox x:Name="cmbSelection" HorizontalAlignment="Left" Margin="28,40,0,0" VerticalAlignment="Top" Width="142"/>
         <Label Content="Selecteer uw talstelsel:" HorizontalAlignment="Left" Margin="28,10,0,0" VerticalAlignment="Top" Width="142" Height="25"/>
         <Label Content="Input:" HorizontalAlignment="Left" Margin="224,9,0,0" VerticalAlignment="Top" Width="80"/>
