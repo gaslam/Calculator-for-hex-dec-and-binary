@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hex_Dec_And_Binary_Convertor"
         mc:Ignorable="d"
-        Title="MainWindow" Height="302" Width="591.2">
+        Title="MainWindow" Height="302" Width="591.2" Loaded="Window_Loaded">
     <Grid Background="#FFE1F9F8">
         <Label Content="" HorizontalAlignment="Left" Margin="0,0,-0.2,0" VerticalAlignment="Top" Height="82" Width="585" Background="White"/>
 
