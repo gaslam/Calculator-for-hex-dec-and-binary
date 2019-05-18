@@ -47,12 +47,18 @@ namespace Hex_Dec_And_Binary_Convertor
                 {
                     labelVullen_nietVanToepassing(i);
                 }
+                else
+                {
+                    labelVullen_berekenen(i);
+                }
+                whiteSpace(txtInput.Text);
             }
+            
         }
 
         private void labelVullen_nietVanToepassing(int nummer)
         {
-            string nvt = "Niet van Toepassing";
+            string nvt = "";
             if (nummer == 0)
             {
                 lblBinair.Content = nvt;
@@ -65,9 +71,25 @@ namespace Hex_Dec_And_Binary_Convertor
             else
             {
                 lblHexadecimaal.Content = nvt;
+            }    
+        }
+
+        private void labelVullen_berekenen(int nummer)
+        {
+            string test = "Test";
+            if (nummer == 0)
+            {
+                lblBinair.Content = test;
+            }
+            else if (nummer == 1)
+            {
+                lblDecimaal.Content = test;
             }
 
-            whiteSpace(txtInput.Text);    
+            else if (nummer == 2)
+            {
+                lblHexadecimaal.Content = test;
+            }
         }
 
         private void whiteSpace(string whiteSpace)
