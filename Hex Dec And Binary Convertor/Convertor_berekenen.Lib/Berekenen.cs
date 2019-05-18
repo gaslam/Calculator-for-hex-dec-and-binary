@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Convertor_berekenen.Lib
 {
-    public class Class1
+    public class Berekenen
     {
     }
 }
