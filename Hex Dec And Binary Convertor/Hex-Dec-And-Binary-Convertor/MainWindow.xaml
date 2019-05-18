@@ -1,0 +1,24 @@
+﻿<Window x:Class="Hex_Dec_And_Binary_Convertor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Hex_Dec_And_Binary_Convertor"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="302" Width="591.2">
+    <Grid Background="#FFE1F9F8">
+        <Label Content="" HorizontalAlignment="Left" Margin="0,0,-0.2,0" VerticalAlignment="Top" Height="82" Width="585" Background="White"/>
+
+        <TextBox x:Name="txtInput" HorizontalAlignment="Left" Height="23" Margin="224,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="248"/>
+        <ComboBox x:Name="cmbSelection" HorizontalAlignment="Left" Margin="28,40,0,0" VerticalAlignment="Top" Width="142"/>
+        <Label Content="Selecteer uw talstelsel:" HorizontalAlignment="Left" Margin="28,10,0,0" VerticalAlignment="Top" Width="142" Height="25"/>
+        <Label Content="Input:" HorizontalAlignment="Left" Margin="224,9,0,0" VerticalAlignment="Top" Width="80"/>
+        <Label Content="Binair:" HorizontalAlignment="Left" Margin="28,136,0,0" VerticalAlignment="Top" Width="142"/>
+        <Label Content="Decimaal:" HorizontalAlignment="Left" Margin="28,167,0,0" VerticalAlignment="Top" Width="142"/>
+        <Label Content="Hexadecimaal:" HorizontalAlignment="Left" Margin="28,198,0,0" VerticalAlignment="Top" Width="142"/>
+        <Label x:Name="lblBinair" Content="" HorizontalAlignment="Left" Margin="224,136,0,0" VerticalAlignment="Top" Width="248"/>
+        <Label x:Name="lblDecimaal" Content="" HorizontalAlignment="Left" Margin="224,167,0,0" VerticalAlignment="Top" Width="248"/>
+        <Label x:Name="lblHexadecimaal" Content="" HorizontalAlignment="Left" Margin="224,198,0,0" VerticalAlignment="Top" Width="248"/>
+
+    </Grid>
+</Window>
