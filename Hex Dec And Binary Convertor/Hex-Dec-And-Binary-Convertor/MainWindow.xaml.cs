@@ -39,9 +39,45 @@ namespace Hex_Dec_And_Binary_Convertor
 
         private void TxtInput_TextChanged(object sender, TextChangedEventArgs e)
         {
-            lblBinair.Content = txtInput.Text;
-            lblDecimaal.Content = txtInput.Text;
-            lblHexadecimaal.Content = txtInput.Text;
+            string method;
+            for (int i = 0; i < Selection.Length; i++)
+            {
+                method = Selection[i];
+                if (method == cmbSelection.SelectedItem.ToString())
+                {
+                    labelVullen_nietVanToepassing(i);
+                }
+            }
+        }
+
+        private void labelVullen_nietVanToepassing(int nummer)
+        {
+            string nvt = "Niet van Toepassing";
+            if (nummer == 0)
+            {
+                lblBinair.Content = nvt;
+            }
+            else if (nummer == 1)
+            {
+                lblDecimaal.Content = nvt;
+            }
+
+            else
+            {
+                lblHexadecimaal.Content = nvt;
+            }
+
+            whiteSpace(txtInput.Text);    
+        }
+
+        private void whiteSpace(string whiteSpace)
+        {
+            if (whiteSpace == "")
+            {
+                lblBinair.Content = "";
+                lblDecimaal.Content = "";
+                lblHexadecimaal.Content = "";
+            }
         }
     }
 }
