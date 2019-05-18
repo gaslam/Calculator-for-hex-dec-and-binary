@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="302" Width="591.2">
     <Grid Background="#FFE1F9F8">
-        <Label Content="" HorizontalAlignment="Left" Margin="0,0,-0.4,0" VerticalAlignment="Top" Height="82" Width="794" Background="White"/>
+        <Label Content="" HorizontalAlignment="Left" Margin="0,0,-0.2,0" VerticalAlignment="Top" Height="82" Width="585" Background="White"/>
 
         <TextBox HorizontalAlignment="Left" Height="23" Margin="224,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="248"/>
         <ComboBox HorizontalAlignment="Left" Margin="28,40,0,0" VerticalAlignment="Top" Width="142"/>
