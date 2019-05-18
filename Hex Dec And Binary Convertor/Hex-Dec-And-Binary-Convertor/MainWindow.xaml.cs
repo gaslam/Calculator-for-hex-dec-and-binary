@@ -36,5 +36,12 @@ namespace Hex_Dec_And_Binary_Convertor
 
             cmbSelection.SelectedIndex = 0;
         }
+
+        private void TxtInput_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            lblBinair.Content = txtInput.Text;
+            lblDecimaal.Content = txtInput.Text;
+            lblHexadecimaal.Content = txtInput.Text;
+        }
     }
 }
