@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using Convertor_berekenen.Lib;
 namespace Hex_Dec_And_Binary_Convertor
 {
     /// <summary>
@@ -26,6 +26,9 @@ namespace Hex_Dec_And_Binary_Convertor
         }
 
         string[] Selection = new string[] {"Binair", "Decimaal", "Hexadecimaal", "Octaal"};
+        
+        Berekenen berekenen = new Berekenen();
+        
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -34,7 +37,7 @@ namespace Hex_Dec_And_Binary_Convertor
                 cmbSelection.Items.Add(Selection[i]);
             }
 
-            cmbSelection.SelectedIndex = 0;
+            cmbSelection.SelectedIndex = 1;
         }
 
         private void TxtInput_TextChanged(object sender, TextChangedEventArgs e)
@@ -68,10 +71,15 @@ namespace Hex_Dec_And_Binary_Convertor
                 lblDecimaal.Content = nvt;
             }
 
-            else
+            else if (nummer == 2)
             {
                 lblHexadecimaal.Content = nvt;
-            }    
+            }
+
+            else if (nummer == 3)
+            {
+                lblOctaal.Content = nvt;
+            }
         }
 
         private void labelVullen_berekenen(int nummer)
@@ -79,20 +87,20 @@ namespace Hex_Dec_And_Binary_Convertor
             string test = "Test";
             if (nummer == 0)
             {
-                lblBinair.Content = test;
+      
             }
             else if (nummer == 1)
             {
-                lblDecimaal.Content = test;
+             
             }
 
             else if (nummer == 2)
             {
-                lblHexadecimaal.Content = test;
+                hexadecimaal();
             }
             else if (nummer == 3)
             {
-                lblOctaal.Content = test;
+            
             }
         }
 
@@ -105,5 +113,15 @@ namespace Hex_Dec_And_Binary_Convertor
                 lblHexadecimaal.Content = "";
             }
         }
+
+        private void hexadecimaal()
+        {
+            if (txtInput.Text != "")
+            {
+                lblHexadecimaal.Content = berekenen.Nummer(decimal.Parse(txtInput.Text));
+            }
+            
+        }
+        
     }
 }
