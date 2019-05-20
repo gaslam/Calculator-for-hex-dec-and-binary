@@ -25,7 +25,7 @@ namespace Hex_Dec_And_Binary_Convertor
             InitializeComponent();
         }
 
-        string[] Selection = new string[] {"Binair", "Decimaal", "Hexadecimaal"};
+        string[] Selection = new string[] {"Binair", "Decimaal", "Hexadecimaal", "Octaal"};
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -89,6 +89,10 @@ namespace Hex_Dec_And_Binary_Convertor
             else if (nummer == 2)
             {
                 lblHexadecimaal.Content = test;
+            }
+            else if (nummer == 3)
+            {
+                lblOctaal.Content = test;
             }
         }
 

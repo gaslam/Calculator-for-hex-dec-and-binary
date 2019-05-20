@@ -19,6 +19,8 @@
         <Label x:Name="lblBinair" Content="" HorizontalAlignment="Left" Margin="224,136,0,0" VerticalAlignment="Top" Width="248"/>
         <Label x:Name="lblDecimaal" Content="" HorizontalAlignment="Left" Margin="224,167,0,0" VerticalAlignment="Top" Width="248"/>
         <Label x:Name="lblHexadecimaal" Content="" HorizontalAlignment="Left" Margin="224,198,0,0" VerticalAlignment="Top" Width="248"/>
+        <Label Content="Octaal" HorizontalAlignment="Left" Margin="28,229,0,0" VerticalAlignment="Top" Width="142"/>
+        <Label x:Name="lblOctaal" Content="" HorizontalAlignment="Left" Margin="224,229,0,0" VerticalAlignment="Top" Width="248"/>
 
     </Grid>
 </Window>
