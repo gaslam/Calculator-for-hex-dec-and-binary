@@ -90,7 +90,7 @@ namespace Hex_Dec_And_Binary_Convertor
             string test = "Test";
             if (nummer == 0)
             {
-      
+            binary();
             }
             else if (nummer == 1)
             {
@@ -138,6 +138,18 @@ namespace Hex_Dec_And_Binary_Convertor
                 clone.NumberFormat.NumberDecimalSeparator = ".";
                 decimal ingave = decimal.Parse(txtInput.Text, clone);
                 lblOctaal.Content = berekenen.octaalNummer(ingave);
+            }
+        }
+
+        private void binary()
+        {
+            if (txtInput.Text != "")
+            {
+                var clone = (CultureInfo)CultureInfo.InvariantCulture.Clone();
+                clone.NumberFormat.NumberDecimalSeparator = ",";
+                clone.NumberFormat.NumberDecimalSeparator = ".";
+                decimal ingave = decimal.Parse(txtInput.Text, clone);
+                lblBinair.Content = berekenen.binairNummer(ingave);
             }
         }
         

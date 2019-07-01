@@ -35,6 +35,17 @@ namespace Convertor_berekenen.Lib
             return nummer.ToString();
         }
 
+        public string binairNummer(decimal waarde)
+        {
+            nummer.Clear();
+            DivideBeforeComma(waarde, 2);
+            if (waarde - (int)waarde > 0)
+            {
+                MultiplyAfterComma(waarde - (int)waarde, 2, true);
+            }
+            return nummer.ToString();
+        }
+
         public string DivideBeforeComma(decimal waarde, int deler)
         {
             int modulo;
