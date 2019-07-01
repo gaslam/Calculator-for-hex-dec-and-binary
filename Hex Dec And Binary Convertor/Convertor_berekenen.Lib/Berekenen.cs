@@ -15,6 +15,10 @@ namespace Convertor_berekenen.Lib
         {
             nummer.Clear();
             DivideBeforeComma(waarde, 16);
+            if (waarde - (int) waarde > 0)
+            {
+                Console.WriteLine("test");
+            }
             return nummer.ToString();
 
         }

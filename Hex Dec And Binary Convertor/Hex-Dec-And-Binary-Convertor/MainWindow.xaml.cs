@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,6 +28,7 @@ namespace Hex_Dec_And_Binary_Convertor
 
         string[] Selection = new string[] {"Binair", "Decimaal", "Hexadecimaal", "Octaal"};
         
+
         Berekenen berekenen = new Berekenen();
         
 
@@ -119,7 +121,11 @@ namespace Hex_Dec_And_Binary_Convertor
         {
             if (txtInput.Text != "")
             {
-                lblHexadecimaal.Content = berekenen.hexNummer(decimal.Parse(txtInput.Text));
+                var clone = (CultureInfo)CultureInfo.InvariantCulture.Clone();
+                clone.NumberFormat.NumberDecimalSeparator = ",";
+                clone.NumberFormat.NumberDecimalSeparator = ".";
+                decimal ingave = decimal.Parse(txtInput.Text, clone);
+                lblHexadecimaal.Content = berekenen.hexNummer(ingave);
             }
             
         }
