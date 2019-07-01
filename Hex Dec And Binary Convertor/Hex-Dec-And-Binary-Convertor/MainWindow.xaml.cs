@@ -52,9 +52,10 @@ namespace Hex_Dec_And_Binary_Convertor
                 }
                 else
                 {
+                    whiteSpace(txtInput.Text);
                     labelVullen_berekenen(i);
                 }
-                whiteSpace(txtInput.Text);
+                
             }
             
         }
