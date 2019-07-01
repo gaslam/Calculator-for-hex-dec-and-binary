@@ -103,7 +103,7 @@ namespace Hex_Dec_And_Binary_Convertor
             }
             else if (nummer == 3)
             {
-            
+             octaal();
             }
         }
 
@@ -127,6 +127,18 @@ namespace Hex_Dec_And_Binary_Convertor
                 decimal ingave = decimal.Parse(txtInput.Text, clone);
                 lblHexadecimaal.Content = berekenen.hexNummer(ingave);
             }  
+        }
+
+        private void octaal()
+        {
+            if (txtInput.Text != "")
+            {
+                var clone = (CultureInfo)CultureInfo.InvariantCulture.Clone();
+                clone.NumberFormat.NumberDecimalSeparator = ",";
+                clone.NumberFormat.NumberDecimalSeparator = ".";
+                decimal ingave = decimal.Parse(txtInput.Text, clone);
+                lblOctaal.Content = berekenen.octaalNummer(ingave);
+            }
         }
         
     }

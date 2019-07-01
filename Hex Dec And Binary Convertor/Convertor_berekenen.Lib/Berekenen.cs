@@ -24,6 +24,17 @@ namespace Convertor_berekenen.Lib
 
         }
 
+        public string octaalNummer(decimal waarde)
+        {
+            nummer.Clear();
+            DivideBeforeComma(waarde, 8);
+            if (waarde - (int)waarde > 0)
+            {
+                MultiplyAfterComma(waarde - (int)waarde, 8, true);
+            }
+            return nummer.ToString();
+        }
+
         public string DivideBeforeComma(decimal waarde, int deler)
         {
             int modulo;
