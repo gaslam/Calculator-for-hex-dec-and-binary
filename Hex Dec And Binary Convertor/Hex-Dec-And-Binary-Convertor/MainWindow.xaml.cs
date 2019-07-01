@@ -119,7 +119,7 @@ namespace Hex_Dec_And_Binary_Convertor
         {
             if (txtInput.Text != "")
             {
-                lblHexadecimaal.Content = berekenen.Nummer(decimal.Parse(txtInput.Text));
+                lblHexadecimaal.Content = berekenen.hexNummer(decimal.Parse(txtInput.Text));
             }
             
         }

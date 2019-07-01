@@ -13,14 +13,19 @@ namespace Convertor_berekenen.Lib
 
         public string hexNummer(decimal waarde)
         {
-            
-            int modulo;
             nummer.Clear();
+            DivideBeforeComma(waarde, 16);
+            return nummer.ToString();
 
-            while ((int) waarde >= 1)
+        }
+
+        public string DivideBeforeComma(decimal waarde, int deler)
+        {
+            int modulo;
+            while ((int)waarde >= 1)
             {
-                modulo = (int)waarde % 16;
-                waarde = (int) waarde / 16;
+                modulo = (int)waarde % deler;
+                waarde = (int)waarde / deler;
                 hex = modulo.ToString("X");
                 nummer.Insert(0, hex);
             }
