@@ -126,8 +126,7 @@ namespace Hex_Dec_And_Binary_Convertor
                 clone.NumberFormat.NumberDecimalSeparator = ".";
                 decimal ingave = decimal.Parse(txtInput.Text, clone);
                 lblHexadecimaal.Content = berekenen.hexNummer(ingave);
-            }
-            
+            }  
         }
         
     }

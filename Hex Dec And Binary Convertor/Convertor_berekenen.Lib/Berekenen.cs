@@ -18,7 +18,7 @@ namespace Convertor_berekenen.Lib
             DivideBeforeComma(waarde, 16);
             if (waarde - (int) waarde > 0)
             {
-                MultiplyAfterComma(waarde - (int) waarde, 16);
+                MultiplyAfterComma(waarde - (int) waarde, 16, true);
             }
             return nummer.ToString();
 
@@ -38,11 +38,12 @@ namespace Convertor_berekenen.Lib
             return nummer.ToString();
         }
 
-        public string MultiplyAfterComma(decimal waarde, decimal vermenigvuldiger)
+        public string MultiplyAfterComma(decimal waarde, decimal vermenigvuldiger, bool exception)
         {
             nummer.Insert(nummer.Length, ",");
             decimal vermenigvuldiging;
             int noComma;
+
             for (int i = 0; i < 4; i++)
             {
                 vermenigvuldiging = waarde * vermenigvuldiger;
@@ -50,7 +51,11 @@ namespace Convertor_berekenen.Lib
                 waarde = vermenigvuldiging - ((int)vermenigvuldiging);
                 hex = noComma.ToString("X");
                 nummer.Insert(nummer.Length, hex);
-                
+
+                if (waarde == 0 && exception == true)
+                {
+                    break;
+                }            
             }
             return nummer.ToString();
         }
