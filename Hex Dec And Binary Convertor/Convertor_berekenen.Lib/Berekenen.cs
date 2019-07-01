@@ -11,16 +11,16 @@ namespace Convertor_berekenen.Lib
         StringBuilder nummer = new StringBuilder();
         string hex;
 
-        public string Nummer(decimal waarde)
+        public string hexNummer(decimal waarde)
         {
-            decimal doubleWaarde = waarde;
+            
             int modulo;
             nummer.Clear();
 
-            while ((int) doubleWaarde > 1)
+            while ((int) waarde >= 1)
             {
-                modulo = (int)doubleWaarde % 16;
-                doubleWaarde = (int) doubleWaarde / 16;
+                modulo = (int)waarde % 16;
+                waarde = (int) waarde / 16;
                 hex = modulo.ToString("X");
                 nummer.Insert(0, hex);
             }
