@@ -13,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Convertor_berekenen.Lib;
+using Convertor_berekenen.Lib.Calculations;
 namespace Hex_Dec_And_Binary_Convertor
 {
     /// <summary>
@@ -29,7 +29,7 @@ namespace Hex_Dec_And_Binary_Convertor
         string[] Selection = new string[] {"Binair", "Decimaal", "Hexadecimaal", "Octaal"};
         
 
-        Berekenen berekenen = new Berekenen();
+        
         
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -87,10 +87,14 @@ namespace Hex_Dec_And_Binary_Convertor
 
         private void labelVullen_berekenen(int nummer)
         {
-            string test = "Test";
+
+            CultureInfo clone = (CultureInfo)CultureInfo.InvariantCulture.Clone();
+            clone.NumberFormat.NumberDecimalSeparator = ",";
+            clone.NumberFormat.NumberDecimalSeparator = ".";
+
             if (nummer == 0)
             {
-            binary();
+            binary(clone);
             }
             else if (nummer == 1)
             {
@@ -99,11 +103,11 @@ namespace Hex_Dec_And_Binary_Convertor
 
             else if (nummer == 2)
             {
-                hexadecimaal();
+                hexadecimaal(clone);
             }
             else if (nummer == 3)
             {
-             octaal();
+             octaal(clone);
             }
         }
 
@@ -117,39 +121,44 @@ namespace Hex_Dec_And_Binary_Convertor
             }
         }
 
-        private void hexadecimaal()
+        private void hexadecimaal(CultureInfo clone)
         {
             if (txtInput.Text != "")
             {
-                var clone = (CultureInfo)CultureInfo.InvariantCulture.Clone();
-                clone.NumberFormat.NumberDecimalSeparator = ",";
-                clone.NumberFormat.NumberDecimalSeparator = ".";
                 decimal ingave = decimal.Parse(txtInput.Text, clone);
-                lblHexadecimaal.Content = berekenen.hexNummer(ingave);
+
+                if (cmbSelection.SelectedValue.ToString() == "Decimaal")
+                {
+                    convertFromDecimal newDecimal = new convertFromDecimal();
+                    lblHexadecimaal.Content = newDecimal.hexNummer(ingave);
+                }
             }  
         }
 
-        private void octaal()
+        private void octaal(CultureInfo clone)
         {
+
             if (txtInput.Text != "")
             {
-                var clone = (CultureInfo)CultureInfo.InvariantCulture.Clone();
-                clone.NumberFormat.NumberDecimalSeparator = ",";
-                clone.NumberFormat.NumberDecimalSeparator = ".";
                 decimal ingave = decimal.Parse(txtInput.Text, clone);
-                lblOctaal.Content = berekenen.octaalNummer(ingave);
+                if (cmbSelection.SelectedValue.ToString() == "Decimaal")
+                {
+                    convertFromDecimal newDecimal = new convertFromDecimal();
+                    lblOctaal.Content = newDecimal.octaalNummer(ingave);
+                }
             }
         }
 
-        private void binary()
+        private void binary(CultureInfo clone)
         {
             if (txtInput.Text != "")
             {
-                var clone = (CultureInfo)CultureInfo.InvariantCulture.Clone();
-                clone.NumberFormat.NumberDecimalSeparator = ",";
-                clone.NumberFormat.NumberDecimalSeparator = ".";
                 decimal ingave = decimal.Parse(txtInput.Text, clone);
-                lblBinair.Content = berekenen.binairNummer(ingave);
+                if (cmbSelection.SelectedValue.ToString() =="Decimaal")
+                {
+                    convertFromDecimal newDecimal = new convertFromDecimal();
+                    lblBinair.Content = newDecimal.binairNummer(ingave);
+                }
             }
         }
         
