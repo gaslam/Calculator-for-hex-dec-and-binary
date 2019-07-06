@@ -5,9 +5,9 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Convertor_berekenen.Lib
+namespace Convertor_berekenen.Lib.Calculations
 {
-    public class Berekenen
+    public class convertFromDecimal
     {
         StringBuilder nummer = new StringBuilder();
         string hex;
@@ -70,7 +70,7 @@ namespace Convertor_berekenen.Lib
             {
                 vermenigvuldiging = waarde * vermenigvuldiger;
                 noComma = (int) vermenigvuldiging;
-                waarde = vermenigvuldiging - ((int)vermenigvuldiging);
+                waarde = vermenigvuldiging - noComma;
                 hex = noComma.ToString("X");
                 nummer.Insert(nummer.Length, hex);
 
