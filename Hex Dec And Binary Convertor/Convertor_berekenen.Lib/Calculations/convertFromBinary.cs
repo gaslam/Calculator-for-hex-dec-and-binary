@@ -22,8 +22,6 @@ namespace Convertor_berekenen.Lib.Calculations
                 length++;
                 waarde = waarde.Insert(0, "0");
             }
-
-            Console.WriteLine(waarde);
             return int.Parse(waarde);
         }
     }

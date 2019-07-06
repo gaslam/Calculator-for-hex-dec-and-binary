@@ -135,7 +135,7 @@ namespace Hex_Dec_And_Binary_Convertor
                     lblHexadecimaal.Content = newDecimal.hexNummer(ingave);
                 }
 
-                if (cmbSelection.SelectedValue.ToString() == "Binair" && Regex.IsMatch(ingave.ToString(), @"[0-1]"))
+                if (cmbSelection.SelectedValue.ToString() == "Binair" && Regex.IsMatch(ingave.ToString(), @"[0-1]") && !Regex.IsMatch(ingave.ToString(),@"[2-9]"))
                 {
                   convertFromBinary newBinary = new convertFromBinary();
                   lblHexadecimaal.Content = newBinary.hexadecimal(ingave);
