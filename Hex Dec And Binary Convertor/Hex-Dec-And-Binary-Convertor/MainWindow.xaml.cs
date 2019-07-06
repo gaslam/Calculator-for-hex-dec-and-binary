@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -125,12 +126,19 @@ namespace Hex_Dec_And_Binary_Convertor
         {
             if (txtInput.Text != "")
             {
+                
                 decimal ingave = decimal.Parse(txtInput.Text, clone);
 
                 if (cmbSelection.SelectedValue.ToString() == "Decimaal")
                 {
                     convertFromDecimal newDecimal = new convertFromDecimal();
                     lblHexadecimaal.Content = newDecimal.hexNummer(ingave);
+                }
+
+                if (cmbSelection.SelectedValue.ToString() == "Binair" && Regex.IsMatch(ingave.ToString(), @"[0-1]"))
+                {
+                  convertFromBinary newBinary = new convertFromBinary();
+                  lblHexadecimaal.Content = newBinary.hexadecimal(ingave);
                 }
             }  
         }
