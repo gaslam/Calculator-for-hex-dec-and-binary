@@ -11,15 +11,14 @@ namespace Convertor_berekenen.Lib.Calculations
 
         public string hexadecimal(decimal waarde)
         {
-            voorComma = beforeComma((Convert.ToString((int) waarde)), (int)waarde.ToString().Length);
+            voorComma = beforeComma((Convert.ToString((int) waarde)));
             return nummer.ToString();
         }
 
-        public int beforeComma(string waarde, int length)
+        public int beforeComma(string waarde)
         {
-            while (length % 4 != 0)
+            while (waarde.Length % 4 != 0)
             {
-                length++;
                 waarde = waarde.Insert(0, "0");
             }
             return int.Parse(waarde);
