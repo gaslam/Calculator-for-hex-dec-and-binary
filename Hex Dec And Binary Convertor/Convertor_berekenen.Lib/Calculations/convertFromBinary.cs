@@ -10,13 +10,13 @@ namespace Convertor_berekenen.Lib.Calculations
     {
         public string voorComma { get; set; }
         public string naComma { get; set; }
-        string convert2;
+        int hexvalue;
+        int length;
 
-        StringBuilder nummer = new StringBuilder();
-
-        public string hexadecimal(decimal waarde)
+        public string hexadecimal(string waarde)
         {
-            voorComma = beforeComma((Convert.ToString((int) waarde)));
+            string[] split = waarde.Split('.');
+            voorComma = beforeComma(split[0]);
             return voorComma.ToString();
         }
 
@@ -33,18 +33,38 @@ namespace Convertor_berekenen.Lib.Calculations
         public string Calculation(string value, bool beforeComma, int groupSize)
         {
             string split;
+            StringBuilder nummer = new StringBuilder();
             while (value != "")
             {
                 if (beforeComma == true)
                 {
-                    split = value.Substring(0, groupSize);
-                    voorComma = convert(value, 0);
-                    value = value.Remove(0, value.Length);
+                    if (value.Length < groupSize)
+                    {
+                        split = value.Substring(0, value.Length);
+                        length = value.Length;
+                    }
+                    else
+                    {
+                        split = value.Substring(0, groupSize);
+                        length = groupSize;
+                    }
+                    voorComma = convert(split, 0);
+                    
                     
                 }
+                nummer.Insert(nummer.Length, voorComma);
+                if (value.Length == groupSize)
+                {
+                    value = string.Empty;
+                }
+                else if (value.Length > groupSize)
+                {
+                    value = value.Remove(0, length);
+                }
+
             }
 
-            return voorComma;
+            return nummer.ToString();
 
         }
 
@@ -52,17 +72,16 @@ namespace Convertor_berekenen.Lib.Calculations
         {
             int[] numberToAdd = new[] {8, 4, 2, 1};
             char[] split = value.ToCharArray();
-            for (int i = beginner; i < split.Length; i++)
+            hexvalue = 0;
+            for (int i = beginner; i < length; i++)
             {
                 if (split[i] == '1')
                 {
-                    int multiplier = int.Parse(split[i].ToString());
-                    string hexvalue = (multiplier * numberToAdd[i]).ToString("X");
-                    convert2 += hexvalue;
+                     hexvalue += numberToAdd[i];   
                 }
             }
 
-            return convert2.ToString();
+            return hexvalue.ToString("X");
         }
     }
 }
