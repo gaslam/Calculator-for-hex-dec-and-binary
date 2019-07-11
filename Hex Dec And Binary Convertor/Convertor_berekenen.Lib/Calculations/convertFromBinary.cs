@@ -16,21 +16,21 @@ namespace Convertor_berekenen.Lib.Calculations
         public string hexadecimal(string waarde)
         {
             string[] split = waarde.Split('.');
-            voorComma = beforeComma(split[0]);
+            voorComma = beforeComma(split[0], 4);
             return voorComma.ToString();
         }
 
-        public string beforeComma(string waarde)
+        public string beforeComma(string waarde, int groupSize)
         {
-            while (waarde.Length % 4 != 0)
+            while (waarde.Length % groupSize != 0)
             {
                 waarde = waarde.Insert(0, "0");
             }
 
-            return Calculation(waarde, true, 4);
+            return Calculation1(waarde, true, groupSize);
         }
 
-        public string Calculation(string value, bool beforeComma, int groupSize)
+        public string Calculation1(string value, bool beforeComma, int groupSize)
         {
             string split;
             StringBuilder nummer = new StringBuilder();
