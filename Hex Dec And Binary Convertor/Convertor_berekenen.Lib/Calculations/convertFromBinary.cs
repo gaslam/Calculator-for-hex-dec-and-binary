@@ -14,6 +14,7 @@ namespace Convertor_berekenen.Lib.Calculations
         int length;
         StringBuilder nummer = new StringBuilder();
 
+        #region hex and dec
         public string hexadecimal(decimal waarde)
         {
             voorComma = beforeComma(((int) waarde).ToString(), 4);
@@ -105,5 +106,6 @@ namespace Convertor_berekenen.Lib.Calculations
 
             return hexvalue.ToString("X");
         }
+        #endregion
     }
 }
