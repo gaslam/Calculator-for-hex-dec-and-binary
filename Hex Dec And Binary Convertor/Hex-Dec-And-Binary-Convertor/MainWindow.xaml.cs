@@ -119,6 +119,7 @@ namespace Hex_Dec_And_Binary_Convertor
                 lblBinair.Content = "";
                 lblDecimaal.Content = "";
                 lblHexadecimaal.Content = "";
+                lblOctaal.Content = "";
             }
         }
 
