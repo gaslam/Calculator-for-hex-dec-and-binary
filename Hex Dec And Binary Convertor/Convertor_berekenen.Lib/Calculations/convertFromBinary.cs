@@ -12,12 +12,17 @@ namespace Convertor_berekenen.Lib.Calculations
         public string naComma { get; set; }
         int hexvalue;
         int length;
+        StringBuilder nummer = new StringBuilder();
 
-        public string hexadecimal(string waarde)
+        public string hexadecimal(decimal waarde)
         {
-            string[] split = waarde.Split('.');
-            voorComma = beforeComma(split[0], 4);
-            return voorComma.ToString();
+            voorComma = beforeComma(((int) waarde).ToString(), 4);
+            if (waarde-(int)waarde > 0)
+            {
+                string[] split = waarde.ToString().Split(',');
+                naComma = afterComma(split[1], 4);
+            }
+            return nummer.ToString();
         }
 
         public string beforeComma(string waarde, int groupSize)
@@ -27,17 +32,25 @@ namespace Convertor_berekenen.Lib.Calculations
                 waarde = waarde.Insert(0, "0");
             }
 
-            return Calculation1(waarde, true, groupSize);
+            return Calculation1(waarde, groupSize);
         }
 
-        public string Calculation1(string value, bool beforeComma, int groupSize)
+        public string afterComma(string value, int groupSize)
+        {
+            nummer.Insert(nummer.Length, ',');
+            while (value.Length % groupSize != 0)
+            {
+                value = value.Insert(value.Length, "0");
+            }
+
+            return Calculation1(value, 4);
+        }
+
+        public string Calculation1(string value, int groupSize)
         {
             string split;
-            StringBuilder nummer = new StringBuilder();
             while (value != "")
             {
-                if (beforeComma == true)
-                {
                     if (value.Length < groupSize)
                     {
                         split = value.Substring(0, value.Length);
@@ -48,11 +61,8 @@ namespace Convertor_berekenen.Lib.Calculations
                         split = value.Substring(0, groupSize);
                         length = groupSize;
                     }
-                    voorComma = convert(split, 0);
-                    
-                    
-                }
-                nummer.Insert(nummer.Length, voorComma);
+                
+                nummer.Insert(nummer.Length, convert(split, 0));
                 if (value.Length == groupSize)
                 {
                     value = string.Empty;
