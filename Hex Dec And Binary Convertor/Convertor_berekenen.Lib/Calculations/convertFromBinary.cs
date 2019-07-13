@@ -25,6 +25,17 @@ namespace Convertor_berekenen.Lib.Calculations
             return nummer.ToString();
         }
 
+        public string octal(decimal waarde)
+        {
+            voorComma = beforeComma(((int)waarde).ToString(), 3);
+            if (waarde - (int)waarde > 0)
+            {
+                string[] split = waarde.ToString().Split(',');
+                naComma = afterComma(split[1], 3);
+            }
+            return nummer.ToString();
+        }
+
         public string beforeComma(string waarde, int groupSize)
         {
             while (waarde.Length % groupSize != 0)
@@ -43,7 +54,7 @@ namespace Convertor_berekenen.Lib.Calculations
                 value = value.Insert(value.Length, "0");
             }
 
-            return Calculation1(value, 4);
+            return Calculation1(value, groupSize);
         }
 
         public string Calculation1(string value, int groupSize)
@@ -73,14 +84,15 @@ namespace Convertor_berekenen.Lib.Calculations
                 }
 
             }
-
             return nummer.ToString();
-
         }
-
         public string convert(string value, int beginner)
         {
             int[] numberToAdd = new[] {8, 4, 2, 1};
+            if (length == 3)
+            {
+                numberToAdd = numberToAdd.Except(new int[] {8}).ToArray();
+            }
             char[] split = value.ToCharArray();
             hexvalue = 0;
             for (int i = beginner; i < length; i++)
