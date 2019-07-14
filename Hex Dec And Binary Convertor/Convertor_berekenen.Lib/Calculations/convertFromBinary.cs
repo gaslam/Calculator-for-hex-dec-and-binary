@@ -107,5 +107,46 @@ namespace Convertor_berekenen.Lib.Calculations
             return hexvalue.ToString("X");
         }
         #endregion
+
+        #region Binary
+
+        public string Decimaal(string value)
+        {
+
+            if (value.Contains('.'))
+            {
+                string[] split = value.Split('.');
+                voorComma = beforeCommaBinary(split[0]);
+                naComma = afterCommaBinary(split[1]);
+            }
+            else
+            {
+                voorComma = beforeCommaBinary(value);
+            }
+
+            return nummer.ToString();
+        }
+
+        private string beforeCommaBinary(string value)
+        {
+            char[] split = value.ToCharArray();
+            double number = 0;
+            double power = value.Length;
+            for (int i = value.Length; i < value.Length; i--)
+            {
+                number += Math.Pow(split[i], power);
+                power--;
+            }
+
+            nummer.Insert(0, number);
+            return number.ToString();
+        }
+
+        private string afterCommaBinary(string value)
+        {
+            return nummer.ToString();
+        }
+
+        #endregion
     }
 }
