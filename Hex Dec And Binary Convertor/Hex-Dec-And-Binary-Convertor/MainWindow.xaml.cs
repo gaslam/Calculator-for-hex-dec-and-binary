@@ -181,7 +181,8 @@ namespace Hex_Dec_And_Binary_Convertor
         {
             if (txtInput.Text != "")
             {
-                if (cmbSelection.SelectedValue.ToString() == "Binair")
+                decimal ingave = decimal.Parse(txtInput.Text, clone);
+                if (cmbSelection.SelectedValue.ToString() == "Binair" && Regex.IsMatch(ingave.ToString(), @"[0-1]") && !Regex.IsMatch(ingave.ToString(), @"[2-9]")7)
                 {
                     convertFromDecimal newDecimal = new convertFromDecimal();
                     lblDecimaal.Content = "test";
