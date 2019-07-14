@@ -99,7 +99,7 @@ namespace Hex_Dec_And_Binary_Convertor
             }
             else if (nummer == 1)
             {
-             
+             decimaal(clone);
             }
 
             else if (nummer == 2)
@@ -173,6 +173,18 @@ namespace Hex_Dec_And_Binary_Convertor
                 {
                     convertFromDecimal newDecimal = new convertFromDecimal();
                     lblBinair.Content = newDecimal.binairNummer(ingave);
+                }
+            }
+        }
+
+        private void decimaal (CultureInfo clone)
+        {
+            if (txtInput.Text != "")
+            {
+                if (cmbSelection.SelectedValue.ToString() == "Binair")
+                {
+                    convertFromDecimal newDecimal = new convertFromDecimal();
+                    lblDecimaal.Content = "test";
                 }
             }
         }
