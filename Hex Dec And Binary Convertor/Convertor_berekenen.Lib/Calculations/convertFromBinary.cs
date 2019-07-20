@@ -113,9 +113,9 @@ namespace Convertor_berekenen.Lib.Calculations
         public string Decimaal(string value)
         {
 
-            if (value.Contains('.'))
+            if (value.Contains('.') || value.Contains(','))
             {
-                string[] split = value.Split('.');
+                string[] split = value.Split(',');
                 voorComma = beforeCommaBinary(split[0]);
                 naComma = afterCommaBinary(split[1]);
             }
@@ -129,21 +129,31 @@ namespace Convertor_berekenen.Lib.Calculations
 
         private string beforeCommaBinary(string value)
         {
-            char[] split = value.ToCharArray();
-            double number = 0;
-            double power = value.Length;
-            for (int i = value.Length; i < value.Length; i--)
-            {
-                number += Math.Pow(split[i], power);
-                power--;
-            }
-
-            nummer.Insert(0, number);
-            return number.ToString();
+            int result = Convert.ToInt32(value, 2);
+            nummer.Insert(0, result);
+            return nummer.ToString();
         }
 
         private string afterCommaBinary(string value)
         {
+            nummer.Insert(nummer.Length, ',');
+            decimal result = 0;
+            int twee = 2;
+            decimal divide = 0;
+            char[] split = value.ToCharArray();
+            for (int i = 0; i < value.Length; i++)
+            {
+                if (split[i] == '1')
+                {
+                    divide = decimal.Divide(1, twee);
+                    result = result + divide;
+                }
+
+                twee = twee* 2;
+            }
+
+            string[] split2 = result.ToString().Split(',');
+            nummer.Insert(nummer.Length,split2[1]);
             return nummer.ToString();
         }
 

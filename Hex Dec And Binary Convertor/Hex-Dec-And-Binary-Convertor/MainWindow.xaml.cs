@@ -184,8 +184,8 @@ namespace Hex_Dec_And_Binary_Convertor
                 decimal ingave = decimal.Parse(txtInput.Text, clone);
                 if (cmbSelection.SelectedValue.ToString() == "Binair" && Regex.IsMatch(ingave.ToString(), @"[0-1]") && !Regex.IsMatch(ingave.ToString(), @"[2-9]"))
                 {
-                    convertFromBinary newDecimal = new convertFromBinary();
-                    lblDecimaal.Content = "test";
+                    convertFromBinary newBinary = new convertFromBinary();
+                    lblDecimaal.Content = newBinary.Decimaal(ingave.ToString());
                 }
             }
         }
