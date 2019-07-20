@@ -92,23 +92,30 @@ namespace Hex_Dec_And_Binary_Convertor
             CultureInfo clone = (CultureInfo)CultureInfo.InvariantCulture.Clone();
             clone.NumberFormat.NumberDecimalSeparator = ",";
             clone.NumberFormat.NumberDecimalSeparator = ".";
+            decimal ingave = 0;
+
+            if (txtInput.Text != "")
+            {
+            ingave = decimal.Parse(txtInput.Text, clone);
+            }
+
 
             if (nummer == 0)
             {
-            binary(clone);
+            binary(clone, ingave);
             }
             else if (nummer == 1)
             {
-             decimaal(clone);
+             decimaal(clone, ingave);
             }
 
             else if (nummer == 2)
             {
-                hexadecimaal(clone);
+                hexadecimaal(clone, ingave);
             }
             else if (nummer == 3)
             {
-             octaal(clone);
+             octaal(clone, ingave);
             }
         }
 
@@ -123,13 +130,10 @@ namespace Hex_Dec_And_Binary_Convertor
             }
         }
 
-        private void hexadecimaal(CultureInfo clone)
+        private void hexadecimaal(CultureInfo clone, decimal ingave)
         {
             if (txtInput.Text != "")
             {
-                
-                decimal ingave = decimal.Parse(txtInput.Text, clone);
-
                 if (cmbSelection.SelectedValue.ToString() == "Decimaal")
                 {
                     convertFromDecimal newDecimal = new convertFromDecimal();
@@ -144,12 +148,11 @@ namespace Hex_Dec_And_Binary_Convertor
             }  
         }
 
-        private void octaal(CultureInfo clone)
+        private void octaal(CultureInfo clone, decimal ingave)
         {
 
             if (txtInput.Text != "")
             {
-                decimal ingave = decimal.Parse(txtInput.Text, clone);
                 if (cmbSelection.SelectedValue.ToString() == "Decimaal")
                 {
                     convertFromDecimal newDecimal = new convertFromDecimal();
@@ -164,11 +167,10 @@ namespace Hex_Dec_And_Binary_Convertor
             }
         }
 
-        private void binary(CultureInfo clone)
+        private void binary(CultureInfo clone, decimal ingave)
         {
             if (txtInput.Text != "")
             {
-                decimal ingave = decimal.Parse(txtInput.Text, clone);
                 if (cmbSelection.SelectedValue.ToString() =="Decimaal")
                 {
                     convertFromDecimal newDecimal = new convertFromDecimal();
@@ -177,15 +179,14 @@ namespace Hex_Dec_And_Binary_Convertor
             }
         }
 
-        private void decimaal (CultureInfo clone)
+        private void decimaal (CultureInfo clone, decimal ingave)
         {
             if (txtInput.Text != "")
             {
-                decimal ingave = decimal.Parse(txtInput.Text, clone);
                 if (cmbSelection.SelectedValue.ToString() == "Binair" && Regex.IsMatch(ingave.ToString(), @"[0-1]") && !Regex.IsMatch(ingave.ToString(), @"[2-9]"))
                 {
                     convertFromBinary newBinary = new convertFromBinary();
-                    lblDecimaal.Content = newBinary.Decimaal(ingave.ToString());
+                    lblDecimaal.Content = newBinary.Decimaal(ingave);
                 }
             }
         }

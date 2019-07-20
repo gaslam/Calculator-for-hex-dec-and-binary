@@ -110,18 +110,18 @@ namespace Convertor_berekenen.Lib.Calculations
 
         #region Binary
 
-        public string Decimaal(string value)
+        public string Decimaal(decimal value)
         {
 
-            if (value.Contains('.') || value.Contains(','))
+            if (value - (int) value > 0)
             {
-                string[] split = value.Split(',');
+                string[] split = value.ToString().Split(',');
                 voorComma = beforeCommaBinary(split[0]);
                 naComma = afterCommaBinary(split[1]);
             }
             else
             {
-                voorComma = beforeCommaBinary(value);
+                voorComma = beforeCommaBinary(value.ToString());
             }
 
             return nummer.ToString();
@@ -136,16 +136,15 @@ namespace Convertor_berekenen.Lib.Calculations
 
         private string afterCommaBinary(string value)
         {
-            nummer.Insert(nummer.Length, ',');
             decimal result = 0;
             int twee = 2;
-            decimal divide = 0;
             char[] split = value.ToCharArray();
+
             for (int i = 0; i < value.Length; i++)
             {
                 if (split[i] == '1')
                 {
-                    divide = decimal.Divide(1, twee);
+                    decimal divide = decimal.Divide(1, twee);
                     result = result + divide;
                 }
 
@@ -153,7 +152,7 @@ namespace Convertor_berekenen.Lib.Calculations
             }
 
             string[] split2 = result.ToString().Split(',');
-            nummer.Insert(nummer.Length,split2[1]);
+            nummer.Insert(nummer.Length,',' + split2[1]);
             return nummer.ToString();
         }
 
