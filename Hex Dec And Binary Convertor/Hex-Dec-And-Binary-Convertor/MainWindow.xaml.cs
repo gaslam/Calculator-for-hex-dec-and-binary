@@ -176,6 +176,11 @@ namespace Hex_Dec_And_Binary_Convertor
                     convertFromDecimal newDecimal = new convertFromDecimal();
                     lblBinair.Content = newDecimal.binairNummer(ingave);
                 }
+
+                if (cmbSelection.SelectedValue.ToString() == "Hexadecimaal")
+                {
+                    Console.WriteLine("Test succeeded");
+                }
             }
         }
 
