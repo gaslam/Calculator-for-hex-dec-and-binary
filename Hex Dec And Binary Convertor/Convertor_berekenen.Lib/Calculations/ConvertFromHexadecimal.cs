@@ -55,7 +55,23 @@ namespace Convertor_berekenen.Lib.Calculations
                 }
             }
 
-            return value.ToString();
+            string zero = Zero(value.ToString());
+            return zero;
+        }
+
+        public string Zero(string waarde)
+        {
+            char[] split = waarde.ToCharArray();
+            while (split[0] == '0')
+            {
+                if (split[0] == '0')
+                {
+                    split = split.Skip(1).ToArray();
+                }
+            }
+            string result = new string(split);
+
+            return result;
         }
 
         public string[] split(string waarde)

@@ -95,7 +95,7 @@ namespace Hex_Dec_And_Binary_Convertor
             decimal ingave;
             string stringingave = "";
 
-            if (decimal.TryParse(txtInput.Text, out ingave))
+            if (decimal.TryParse(txtInput.Text, out ingave) && cmbSelection.SelectedValue != "Hexadecimaal")
             {
                 ingave = decimal.Parse(txtInput.Text, clone);
             }
