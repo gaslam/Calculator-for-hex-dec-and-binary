@@ -111,7 +111,7 @@ namespace Hex_Dec_And_Binary_Convertor
             }
             else if (nummer == 1)
             {
-                decimaal(clone, ingave);
+                decimaal(clone, ingave, stringingave);
             }
 
             else if (nummer == 2)
@@ -190,7 +190,7 @@ namespace Hex_Dec_And_Binary_Convertor
             }
         }
 
-        private void decimaal(CultureInfo clone, decimal ingave)
+        private void decimaal(CultureInfo clone, decimal ingave, string stringingave)
         {
             if (txtInput.Text != "")
             {
@@ -198,6 +198,12 @@ namespace Hex_Dec_And_Binary_Convertor
                 {
                     convertFromBinary newBinary = new convertFromBinary();
                     lblDecimaal.Content = newBinary.Decimaal(ingave);
+                }
+
+                if (cmbSelection.SelectedValue.ToString() == "Hexadecimaal")
+                {
+                    ConvertFromHexadecimal newHexadecimal = new ConvertFromHexadecimal();
+                    lblDecimaal.Content = newHexadecimal.decimaal(stringingave);
                 }
             }
         }
