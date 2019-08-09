@@ -25,12 +25,9 @@ namespace Convertor_berekenen.Lib.Calculations
             {
                 Nummer.Insert(Nummer.Length, ',');
                 naComma = Calculation(Comma[1].ToString());
-                return Zero(Nummer.ToString(), false);
             }
-            else
-            {
                 return Zero(Nummer.ToString(), true);
-            }
+
 
         }
 
@@ -42,24 +39,50 @@ namespace Convertor_berekenen.Lib.Calculations
             Nummer.Insert(0, voorComma);
             if (Comma.Length > 1 && Comma[1].ToString() != "")
             {
-                naComma = afterComma(Comma[1]);
+                naComma = afterComma(Comma[1] , 16);
             }
             return Nummer.ToString();
         }
 
-        public string afterComma(string value)
+        public string Octaal(string ingave)
+        {
+            Comma = split(ingave);
+            voorComma = octaalBeforeComma(Comma[0]);
+
+            if (Comma.Length > 1 && Comma[1].ToString() != "")
+            {
+                Nummer.Insert(Nummer.Length, ',');
+                naComma = Calculation(Comma[1].ToString());
+            }
+
+            return Nummer.ToString();
+        }
+
+        public string octaalBeforeComma(string value)
+        {
+            double result = Convert.ToInt32(value, 16);
+            int modulo;
+            while (result >= 1)
+            {
+                modulo = (int)result % 8;
+                Nummer.Insert(0, modulo);
+                result = (int)result / 8;
+            }
+            return Nummer.ToString();
+        }
+
+        public string afterComma(string value, int multiplier)
         {
             decimal result = 0;
-            int sixteen = 16;
             char[] split = value.ToCharArray();
 
             foreach (char character in split)
             {
-                int convert = Convert.ToInt32(character.ToString(), 16);
-                decimal divide = decimal.Divide(convert, sixteen);
+                int convert = Convert.ToInt32(character.ToString(), multiplier);
+                decimal divide = decimal.Divide(convert, multiplier);
                 result = result + divide;
 
-                sixteen = sixteen * 2;
+                multiplier = multiplier * 2;
             }
 
             string[] split2 = result.ToString().Split(',', '.');
@@ -100,6 +123,18 @@ namespace Convertor_berekenen.Lib.Calculations
             }
 
             return value.ToString();
+        }
+
+        public string Calculation3(decimal BeforeComma)
+        {
+            while (BeforeComma > 0)
+            {
+                int modulo = (int) BeforeComma % 8;
+                BeforeComma = (int) BeforeComma / 8;
+                Console.WriteLine(modulo);
+            }
+
+            return Nummer.ToString();
         }
 
         public string Zero(string waarde, bool firstOrLast)
